@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Env
+.env
+
+# Build artifacts (compiled ABI/bytecode, deployment info)
+build/
+
+# Geth local dev chain data
+geth-dev-data/
+
+# Downloaded datasets
+data/
+
+# OS
+.DS_Store
