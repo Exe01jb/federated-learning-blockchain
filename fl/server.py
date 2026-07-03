@@ -1,7 +1,3 @@
-"""The FL aggregator: combines client updates into a new global model using
-FedAvg (McMahan et al., 2017) -- a sample-size-weighted average of parameters.
-"""
-
 import copy
 from typing import Dict, List
 

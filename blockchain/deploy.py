@@ -1,12 +1,3 @@
-"""Deploys the compiled FederatedLearning contract to a Geth node (local dev
-node, or any network reachable via GETH_RPC_URL) using Web3.py.
-
-Uses an unlocked account + `.transact()`, which is what Geth's `--dev` mode
-gives you for free. Pointing this at a remote node instead (e.g. a testnet)
-means switching to `build_transaction` + `sign_transaction` with a private
-key from `.env`, since remote nodes won't have unlocked accounts.
-"""
-
 import json
 import os
 

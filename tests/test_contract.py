@@ -1,10 +1,3 @@
-"""Integration tests for the FederatedLearning contract. Requires a running
-Geth (or any) JSON-RPC node reachable at GETH_RPC_URL, e.g.:
-
-    ./scripts/start_geth_dev.sh &
-    pytest tests/test_contract.py
-"""
-
 import os
 
 import pytest

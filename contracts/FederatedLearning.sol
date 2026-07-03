@@ -1,15 +1,5 @@
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-/// @title FederatedLearning
-/// @notice Coordinates a federated learning process on-chain: participant
-///         registration, per-round model-update commitments (hash + off-chain
-///         pointer such as an IPFS CID), round finalization by the aggregator,
-///         and reputation-weighted reward distribution.
-/// @dev Raw model weights are never stored on-chain. Only a sha256 commitment
-///      and a pointer to off-chain storage (e.g. IPFS) are recorded, keeping
-///      gas costs low while still giving every round a verifiable,
-///      tamper-evident audit trail.
 contract FederatedLearning {
     address public owner;
     uint256 public currentRound;
@@ -65,7 +55,6 @@ contract FederatedLearning {
         currentRound = 0;
     }
 
-    /// @notice Register the caller as an FL participant for future rounds.
     function registerParticipant() external {
         require(!participants[msg.sender].registered, "FL: already registered");
         participants[msg.sender] = Participant({registered: true, reputation: 0, totalRewards: 0});
@@ -73,10 +62,7 @@ contract FederatedLearning {
         emit ParticipantRegistered(msg.sender);
     }
 
-    /// @notice Submit a commitment for this round's locally trained model.
-    /// @param _modelHash Hash of the local model weights (sha256 of the serialized state_dict).
-    /// @param _modelCID Off-chain pointer to the weights (e.g. an IPFS CID).
-    /// @param _dataSize Number of local training samples used, for weighted aggregation off-chain.
+
     function submitModelUpdate(bytes32 _modelHash, string calldata _modelCID, uint256 _dataSize) external onlyRegistered {
         require(_dataSize > 0, "FL: dataSize must be > 0");
         require(!rounds[currentRound].finalized, "FL: round already finalized");
@@ -94,9 +80,7 @@ contract FederatedLearning {
         emit ModelUpdateSubmitted(msg.sender, currentRound, _modelHash);
     }
 
-    /// @notice Called by the aggregator once enough updates are in. Records the
-    ///         resulting global model commitment, pays contributors, then
-    ///         advances to the next round.
+
     function finalizeRound(bytes32 _globalModelHash, string calldata _globalModelCID) external onlyOwner {
         uint256 count = roundUpdates[currentRound].length;
         require(count >= minParticipants, "FL: not enough updates yet");

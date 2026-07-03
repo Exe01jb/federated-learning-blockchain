@@ -1,7 +1,3 @@
-"""Unit tests for the FedAvg aggregation logic (no blockchain or dataset
-download required).
-"""
-
 import torch
 
 from fl.model import SimpleCNN

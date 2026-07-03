@@ -1,7 +1,3 @@
-"""Thin Web3.py wrapper exposing the FederatedLearning contract's calls as
-plain Python methods, used by both the simulation script and tests.
-"""
-
 import json
 import os
 from typing import Optional

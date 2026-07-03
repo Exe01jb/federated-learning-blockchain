@@ -1,8 +1,3 @@
-"""A single federated learning participant: trains the current global model
-on its own local shard of data and produces a commitment (hash) of the
-resulting weights that will be submitted on-chain.
-"""
-
 import copy
 import hashlib
 import io

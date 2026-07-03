@@ -1,8 +1,3 @@
-"""PyTorch model used by every federated learning client and by the server's
-global model. A small CNN is enough to demonstrate the pipeline end-to-end on
-MNIST while still training fast on CPU (no GPU required for the demo).
-"""
-
 import torch.nn as nn
 import torch.nn.functional as F
 

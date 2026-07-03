@@ -1,8 +1,3 @@
-"""Utilities for loading MNIST and partitioning it across simulated clients,
-either IID (random split) or non-IID (label-sorted shards, as in the original
-FedAvg paper) so the demo can show both data regimes.
-"""
-
 from typing import List
 
 import torch

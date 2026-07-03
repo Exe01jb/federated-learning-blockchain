@@ -1,14 +1,3 @@
-"""End-to-end demo: deploys the contract to a running Geth node, partitions
-MNIST across N simulated clients, and runs several federated learning rounds
-where every round's global model is committed on-chain and rewards are
-distributed to participants automatically by the smart contract.
-
-Usage:
-    1. ./scripts/start_geth_dev.sh          # in a separate terminal
-    2. cp .env.example .env
-    3. python -m scripts.run_simulation
-"""
-
 import os
 import sys
 

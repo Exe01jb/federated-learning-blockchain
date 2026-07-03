@@ -1,7 +1,3 @@
-"""Compiles contracts/FederatedLearning.sol with py-solc-x and writes the ABI
-+ bytecode to build/FederatedLearning.json.
-"""
-
 import json
 import os
 
